@@ -2,31 +2,31 @@
 
 require_once 'Bicycle.php';
 require_once 'Car.php';
+require_once 'Truck.php';
 
+$bicycle = new Bicycle('blue', 1);
+echo $bicycle->forward();
+var_dump($bicycle);
 
-$bike = new Bicycle();
-// Instanciation d'un nouvel objet $rockrider
-$rockrider = new Bicycle();
-// Instanciation d'un nouvel objet $tornado
-$tornado = new Bicycle();
+$car = new Car('green', 4, 'electric');
+echo $car->forward();
+var_dump($car);
 
-$bmw = new Car('grey', 5, 'diesel');
-$tesla = new Car('blue', 5, 'electric');
+var_dump(Car::ALLOWED_ENERGIES);
 
-// Moving bike
-echo $bike->forward();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
+$volvo = new Truck(250, 'red', 2, 'fuel');
+$man = new Truck(200, 'blue', 2, 'electric');
 
-var_dump($bike);
+echo $man->forward();
+echo $man->brake();
+echo '<br>';
+echo $man->full();
 
-// Moving bike
-echo $bmw->forward();
-echo '<br> Vitesse du vélo : ' . $bmw->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bmw->brake();
-echo '<br> Vitesse du vélo : ' . $bmw->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bmw->brake();
+echo '<br>';
 
-var_dump($bmw);
+$man->setLoading(100);
+echo $man->full();
+
+echo '<br>';
+
+var_dump($man);
